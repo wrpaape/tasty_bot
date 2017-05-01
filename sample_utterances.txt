@@ -1,0 +1,2 @@
+FlipCoinIntent flip a coin
+FlipCoinIntent flip coin

@@ -1,0 +1,21 @@
+{
+    "version": "1.0",
+    "application": {
+        "applicationId": "dummy_application_id"
+    },
+    "session": {
+        "new":       false,
+        "sessionId": "dummy_session_id",
+        "attributes": {},
+        "user": {
+            "userId": null
+        }
+    },
+    "request": {
+        "type":      "IntentRequest",
+        "requestId": "dummy_request_id",
+        "intent": {
+            "name": "FlipCoinIntent"
+        }
+    }
+}
