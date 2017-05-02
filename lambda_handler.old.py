@@ -93,6 +93,11 @@ INTENT_DISPATCH = {
 # Event Handlers
 # ------------------------------------------------------------------------------
 @log_event
+def handle_new_session():
+    return None
+
+
+@log_event
 def handle_launch_request(_request):
     return handle_help_intent()
 
@@ -124,8 +129,13 @@ REQUEST_DISPATCH = {
 # Entry Point
 # ------------------------------------------------------------------------------
 def lambda_handler(event, _context):
-    if event['session']['application']['applicationId'] != APPLICATION_ID:
+    session = event['session']
+
+    if session['application']['applicationId'] != APPLICATION_ID:
         raise ValueError('Invalid Application ID')
+
+    if session['new']:
+        return handle_new_session(event)
 
     request      = event['request']
     request_type = request['type']

@@ -1,21 +1,24 @@
 {
-    "version": "1.0",
-    "application": {
-        "applicationId": "dummy_application_id"
-    },
     "session": {
-        "new":       false,
-        "sessionId": "dummy_session_id",
+        "sessionId": "SessionId.78b2df13-8753-4c8c-89f2-f619b4b8f22a",
+        "application": {
+            "applicationId": "dummy_application_id"
+        },
         "attributes": {},
         "user": {
-            "userId": null
-        }
+            "userId": "amzn1.ask.account.AFHVF5IRZGQPBN56SIXXHMOMTAD6UCFHXQ7VJQVGDUXA6S2PW6BLOFFSUWPDOV5K637EISSUIE5Z2VMPUOJBKHW52RSDA6ENNBU2KLOKIV6C5POAIIRCLUR7MXC7G73WBPPKL2A4GBWUEXFS6NR5WAZYNW4N6FGCQZKAF7T4CYOX5QKKHYTKKFUJPFXJBFJHHXPNLA3WIJLZVUY"
+        },
+        "new": true
     },
     "request": {
-        "type":      "IntentRequest",
-        "requestId": "dummy_request_id",
+        "type": "IntentRequest",
+        "requestId": "EdwRequestId.ff7470be-e485-4173-9d8d-797b473e9611",
+        "locale": "en-US",
+        "timestamp": "2017-05-02T00:40:23Z",
         "intent": {
-            "name": "FlipCoinIntent"
+            "name": "FlipCoinIntent",
+            "slots": {}
         }
-    }
+    },
+    "version": "1.0"
 }
