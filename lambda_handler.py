@@ -15,7 +15,7 @@ FLIP_COIN_INSTRUCTIONS = 'You can ask me to flip a coin for you by saying, ' \
 
 # Utility Functions
 # ------------------------------------------------------------------------------
-def build_response(card_title, speech_output, should_end_session):
+def build_response(card_title, card_content, speech_output, should_end_session):
     return {
         'version':           APPLICATION_VERSION,
         'sessionAttributes': {},
@@ -27,8 +27,8 @@ def build_response(card_title, speech_output, should_end_session):
             },
             'card': {
                 'type':    'Simple',
-                'title':   'SessionSpeechlet - ' + card_title,
-                'content': 'SessionSpeechlet - ' + speech_output,
+                'title':   card_title,
+                'content': card_content,
             },
             'reprompt': {
                 'outputSpeech': {
@@ -71,14 +71,16 @@ def log_event(event_handler):
 # ------------------------------------------------------------------------------
 def handle_help_intent():
     return build_response('Help',
+                          'Ask TastyBot to flip a coin.',
                           'Hello, this is Tasty Bot. ' + FLIP_COIN_INSTRUCTIONS,
-                          False)
+                           False)
 
 
 def handle_flip_coin_intent():
     outcome = random.choice(('heads', 'tails'))
 
-    return build_response('FlipCoin',
+    return build_response('Flip Coin',
+                          'You flipped ' + outcome + '!',
                           'Your coin flip outcome was ' + outcome + '.',
                           True)
 
@@ -124,8 +126,8 @@ REQUEST_DISPATCH = {
 # Entry Point
 # ------------------------------------------------------------------------------
 def lambda_handler(event, _context):
-    if event['session']['application']['applicationId'] != APPLICATION_ID:
-        raise ValueError('Invalid Application ID')
+    # if event['session']['application']['applicationId'] != APPLICATION_ID:
+    #     raise ValueError('Invalid Application ID')
 
     request      = event['request']
     request_type = request['type']
