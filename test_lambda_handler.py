@@ -1,10 +1,12 @@
 #!/usr/bin/env python
+import os
 import json
 
 from lambda_handler import lambda_handler
 
 
-EVENT_PATH = 'test_event.json'
+EVENT_PATH = os.path.join(os.path.dirname(__file__),
+                          'data', 'test_event.json')
 
 
 if __name__ == '__main__':
